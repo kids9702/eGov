@@ -4,12 +4,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import app.config.AppConfig;
 import app.member.Member;
 import app.member.repository.MemoryMemberRepository;
 
 public class MemberServiceTest {
 	
-	private MemberService memberService = new MemberServiceImpl();
+	private AppConfig appConfig = new AppConfig();
+	
+	private MemberService memberService = appConfig.memberService();
 	
 	@Test
 	@DisplayName("회원가입 테스트")

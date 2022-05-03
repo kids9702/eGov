@@ -6,8 +6,15 @@ import app.member.repository.MemoryMemberRepository;
 
 public class MemberServiceImpl implements MemberService {
 	
-	private MemberRepository memberRepository= new MemoryMemberRepository();
+//	private MemberRepository memberRepository = new MemoryMemberRepository();
 	
+	private MemberRepository memberRepository;
+	
+	public MemberServiceImpl(MemberRepository memberRepository) {
+		
+		this.memberRepository = memberRepository;
+	}
+
 	@Override
 	public void join(Member member) throws Exception{
 		// 1. id 확인

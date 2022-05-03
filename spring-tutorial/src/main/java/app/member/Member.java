@@ -5,8 +5,8 @@ import app.order.Order;
 public class Member {
 	private Long id;
 	private String name;
-	private int totalCount;
-	private int totalPrice;
+	private int totalCount = 0;
+	private int totalPrice = 0;
 	
 	public void makeOrder(Order order) {
 		if(id.equals(order.getMemberId())) {
