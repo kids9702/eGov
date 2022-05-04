@@ -2,17 +2,28 @@ package app.member.service;
 
 import app.member.Member;
 import app.member.repository.MemberRepository;
-import app.member.repository.MemoryMemberRepository;
 
 public class MemberServiceImpl implements MemberService {
 	
 //	private MemberRepository memberRepository = new MemoryMemberRepository();
 	
+	private String prefix;
+	
+	public String getPrefix() {
+		return prefix;
+	}
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+
 	private MemberRepository memberRepository;
 	
 	public MemberServiceImpl(MemberRepository memberRepository) {
 		
 		this.memberRepository = memberRepository;
+	}
+	public MemberRepository getMemberRepository() {
+		return memberRepository;
 	}
 
 	@Override

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="memberRepository" class="app.member.repository.MemoryMemberRepository"></bean>
+
+	<bean id="memberService" class="app.member.service.MemberServiceImpl">
+		<constructor-arg name="" ref="memberRepository"></constructor-arg>
+		<property name="prefix" value="aaa"></property>
+	</bean>
+	
+	<bean id="numberOfItemsPolicy" class="app.order.policy.NumberOfItemsPolicy"></bean>
+	
+	<bean id="totalNumberPolicy" class="app.order.policy.TotalNumberPolicy"></bean>
+	
+	<bean id="totalPricePolicy" class="app.order.policy.TotalPricePolicy"></bean>
+	
+	<alias name="totalNumberPolicy" alias="shippingFeePolicy"></alias>
+	
+	<bean id="orderService" class="app.order.service.OrderServiceImpl">
+		<constructor-arg name="memberRepository" ref="memberRepository">
+		</constructor-arg>
+		<constructor-arg name="shippingFeePolicy" ref="shippingFeePolicy">
+		</constructor-arg>
+	</bean>
+</beans>
