@@ -1,5 +1,11 @@
 package app.order.service;
 
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 import app.member.Member;
 import app.member.repository.MemberRepository;
 import app.member.repository.MemoryMemberRepository;
@@ -8,13 +14,21 @@ import app.order.policy.ShippingFeePolicy;
 import app.order.policy.TotalNumberPolicy;
 import app.order.policy.TotalPricePolicy;
 
+@Component
 public class OrderServiceImpl implements OrderService{
 	
 	private MemberRepository memberRepository;
 	private ShippingFeePolicy shippingFeePolicy;
 	
+	@Autowired
 	public OrderServiceImpl(MemberRepository memberRepository, ShippingFeePolicy shippingFeePolicy) {
 		this.memberRepository = memberRepository;
+		this.shippingFeePolicy = shippingFeePolicy;
+	}
+	public ShippingFeePolicy getShippingFeePolicy() {
+		return shippingFeePolicy;
+	}
+	public void setShippingFeePolicy(ShippingFeePolicy shippingFeePolicy) {
 		this.shippingFeePolicy = shippingFeePolicy;
 	}
 	public MemberRepository getMemberRepository() {

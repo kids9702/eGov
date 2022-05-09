@@ -1,7 +1,10 @@
 package app.order.policy;
 
+import org.springframework.stereotype.Component;
+
 import app.member.Member;
 
+@Component
 public class TotalNumberPolicy implements ShippingFeePolicy{
 
 	@Override

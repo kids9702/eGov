@@ -3,8 +3,11 @@ package app.member.repository;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import app.member.Member;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository {
 	
 	private Map<Long, Member> memberDb = new HashMap<>();

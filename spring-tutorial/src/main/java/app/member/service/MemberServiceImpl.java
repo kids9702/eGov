@@ -1,8 +1,12 @@
 package app.member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import app.member.Member;
 import app.member.repository.MemberRepository;
 
+@Component
 public class MemberServiceImpl implements MemberService {
 	
 //	private MemberRepository memberRepository = new MemoryMemberRepository();
@@ -16,16 +20,27 @@ public class MemberServiceImpl implements MemberService {
 		this.prefix = prefix;
 	}
 
+	
 	private MemberRepository memberRepository;
 	
+	@Autowired
+	public MemberServiceImpl() {
+		System.out.println("기본 생성자 호출");
+	}
+	
 	public MemberServiceImpl(MemberRepository memberRepository) {
-		
+		System.out.println("memberRepository 주입 생성자 호출");
 		this.memberRepository = memberRepository;
 	}
 	public MemberRepository getMemberRepository() {
 		return memberRepository;
 	}
-
+	
+	public void setMemberRepository(MemberRepository memberRepository) {
+		System.out.println("setMemberRepository() 호출");
+		this.memberRepository = memberRepository;
+	}
+	
 	@Override
 	public void join(Member member) throws Exception{
 		// 1. id 확인
@@ -41,6 +56,7 @@ public class MemberServiceImpl implements MemberService {
 		}
 		
 		memberRepository.join(member);
+		
 	}
 
 	@Override

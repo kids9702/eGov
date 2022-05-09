@@ -1,7 +1,12 @@
 package app.order.policy;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 import app.member.Member;
 
+@Component
+@Qualifier("aaa")
 public class TotalPricePolicy implements ShippingFeePolicy {
 
 	@Override
