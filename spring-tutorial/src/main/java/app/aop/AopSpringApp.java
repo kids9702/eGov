@@ -15,13 +15,16 @@ public class AopSpringApp {
 			System.out.println("name : " + name);
 		}
 		
-		MemberService memberService = (MemberService) ac.getBean("proxy");
+		MemberService memberService = (MemberService) ac.getBean("memberServiceImpl");
 		
 		Member member = new Member();
 		member.setId(1L);
 		member.setName("aaa");
 		
 		memberService.join(member);
+//		memberService.join(member);
+		
+		System.out.println("===================================");
 		
 		Member findMember = memberService.findMember(1L);
 		System.out.println(findMember.getName());

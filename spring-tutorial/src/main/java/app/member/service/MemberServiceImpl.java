@@ -20,14 +20,14 @@ public class MemberServiceImpl implements MemberService {
 		this.prefix = prefix;
 	}
 
-	
+	@Autowired
 	private MemberRepository memberRepository;
 	
-	@Autowired
 	public MemberServiceImpl() {
 		System.out.println("기본 생성자 호출");
 	}
 	
+	@Autowired
 	public MemberServiceImpl(MemberRepository memberRepository) {
 		System.out.println("memberRepository 주입 생성자 호출");
 		this.memberRepository = memberRepository;
@@ -51,6 +51,7 @@ public class MemberServiceImpl implements MemberService {
 		}
 		
 		// 2. 중복 확인
+		
 		Member storedMember = memberRepository.findById(memberId);
 		if(storedMember != null) {
 			throw new RuntimeException();
