@@ -21,6 +21,7 @@ public class SpringAutoAppConfig {
 	public MemberService memberServiceImpl() {
 		MemberServiceImpl memberServiceImpl = new MemberServiceImpl();
 		memberServiceImpl.setPrefix("수동등록");
+		
 		return memberServiceImpl;
 	}
 }
