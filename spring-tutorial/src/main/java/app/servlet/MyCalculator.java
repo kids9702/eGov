@@ -9,32 +9,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/hello2")
-public class MyServlet extends HttpServlet{
+@WebServlet("/calculator")
+public class MyCalculator extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		request.setCharacterEncoding("UTF-8");
 //		response.setCharacterEncoding("UTF-8");
 //		response.setContentType("text/html; charset=UTF-8");
+//		
+		int x = Integer.parseInt(request.getParameter("x"));
+		int y = Integer.parseInt(request.getParameter("y"));
 		
-		String cntstr = request.getParameter("cnt");
-		String name = request.getParameter("name");
-		if(cntstr == null || cntstr.equals("")) {
-			cntstr="10";
+		String cal = request.getParameter("cal");
+		
+		int result = 0;
+		switch (cal) {
+			case "+":
+				result = x + y;
+				break;
+			case "-":
+				result = x - y;
+				break;
+			case "*":
+				result = x * y;
+				break;
+			case "/":
+				result = x / y;
 		}
-		try {
-			Integer.parseInt(cntstr);
-		} catch (NumberFormatException e) {
-			cntstr="10";
-		}
-		
-		int cnt = Integer.parseInt(cntstr);
-		
 		PrintWriter out = response.getWriter();
-		for(int i = 0; i < cnt; i++) {
-			out.println((i+1) + " : " + name + "님 안녕하세요<br>");
+		
+		if(result!=0) {
+			out.println(result);
 		}
+		
 		
 	}
 }
