@@ -23,7 +23,7 @@ public class MyCalculator extends HttpServlet{
 		
 		String cal = request.getParameter("cal");
 		
-		int result = 0;
+		double result = 0;
 		switch (cal) {
 			case "+":
 				result = x + y;
@@ -35,12 +35,12 @@ public class MyCalculator extends HttpServlet{
 				result = x * y;
 				break;
 			case "/":
-				result = x / y;
+				result = x / (double)y;
 		}
 		PrintWriter out = response.getWriter();
 		
 		if(result!=0) {
-			out.println(result);
+			out.println(x + " " + cal + " " + y  + " = " + result);
 		}
 		
 		
