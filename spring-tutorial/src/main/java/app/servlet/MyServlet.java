@@ -35,6 +35,14 @@ public class MyServlet extends HttpServlet{
 		for(int i = 0; i < cnt; i++) {
 			out.println((i+1) + " : " + name + "님 안녕하세요<br>");
 		}
-		
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("post");
+		PrintWriter out = response.getWriter();
+		out.println("post");
+	}
+	
+	
 }
