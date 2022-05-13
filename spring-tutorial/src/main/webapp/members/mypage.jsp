@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = "/mvc-model2/members/join" method = "post">
-		ID : <input type = "text" name = "id"/><br>
-		이름 : <input type = "text" name = "name"/>
-		<button type="submit">등록</button>
-	</form>
+	ID : ${member.id}
+	이름 : ${member.name}
 </body>
 </html>

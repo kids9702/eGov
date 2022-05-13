@@ -15,7 +15,6 @@ public class Member {
 		}
 	}
 	
-	
 	public Long getId() {
 		return id;
 	}
@@ -40,7 +39,5 @@ public class Member {
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	
-	
 	
 }

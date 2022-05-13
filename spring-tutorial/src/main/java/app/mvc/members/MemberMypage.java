@@ -14,34 +14,26 @@ import org.springframework.context.ApplicationContext;
 import app.member.Member;
 import app.member.service.MemberService;
 
-@WebServlet("/mvc-model2/members/join")
-public class MemberJoin extends HttpServlet{
+@WebServlet("/mvc-model2/members/my-page")
+public class MemberMypage extends HttpServlet{
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		String name = request.getParameter("name");
 		
 		ApplicationContext ac = MemberConfig.getApplicationContext();
 		MemberService memberService = ac.getBean(MemberService.class);
 		
-		Member member = new Member();
-		member.setId(Long.parseLong(id));
-		member.setName(name);
-		
 		try {
-			memberService.join(member);
+			Member member = memberService.findMember(Long.parseLong(id));
+			request.setAttribute("member", member);
 			
-			response.sendRedirect("/mvc-model2/members/my-page?id="+id);
-			
+			String path = "/members/mypage.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-//		String path = "/mvc-model2/members/join-page";
-//		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-//		dispatcher.forward(request, response);
 	}
 	
 }
