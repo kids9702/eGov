@@ -7,11 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${result}
-	${names[0]}
-	${names[3]}
-	<br>
-	<br>
-	${card.id} ${card.name}
+	<form action = "" method = "get">
+		ID : <input type = "text" name = "id"/><br>
+		이름 : <input type = "text" name = "name"/>
+		<button type="submit">등록</button>
+	</form>
 </body>
 </html>
