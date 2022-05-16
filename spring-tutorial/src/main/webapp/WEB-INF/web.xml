@@ -6,7 +6,17 @@
          version="3.1"
          metadata-complete="false">
          
-         
+    
+    <servlet>
+    	<servlet-name>dispatcher</servlet-name>
+    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	    <servlet-name>dispatcher</servlet-name>
+	    <url-pattern>/</url-pattern>
+	</servlet-mapping>
+     
 	<!-- <filter>
 		<filter-name>characterEncodingFilter</filter-name>
 		<filter-class>app.servlet.filter.CharacterEncodingFilter</filter-class>
