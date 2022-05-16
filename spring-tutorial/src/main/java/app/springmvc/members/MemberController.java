@@ -2,14 +2,11 @@ package app.springmvc.members;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import app.member.Member;
 import app.member.service.MemberService;
-import app.mvc.members.MemberConfig;
 
 @Controller
 public class MemberController {
