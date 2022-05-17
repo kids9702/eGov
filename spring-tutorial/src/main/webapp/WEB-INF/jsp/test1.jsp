@@ -15,5 +15,11 @@
 	<form action="/test2" method="post">
 		<button type="submit">post 요청하기</button>
 	</form>
+	<form action="request3" method="post">
+		<input type="text" name="id"/>
+		<input type="text" name="name"/>
+		<button type="submit">form 요청하기</button>
+	</form>
+	
 </body>
 </html>
